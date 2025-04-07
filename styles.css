@@ -1,0 +1,483 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover {
+    color: #f39c12; /* Highlight color */
+}
+
+#hero {
+    background: url("https://www.fabhotels.com/blog/wp-content/uploads/2019/09/Places-to-Visit-in-North-India_600.jpg");
+    background-size: cover;
+    position: relative; 
+    min-height: 80vh;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content vertically */
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); 
+}
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 60px 20px;
+    border-radius: 20px;
+    display: inline-block;
+}
+.hasini-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;  
+}
+
+.hasini-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
+    transition: 0.3s;
+   
+}
+
+.hasini-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: black;
+    transform: scale(1.1);
+    
+}
+
+
+
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+    #destinations {
+        background-color: antiquewhite;
+        position: relative;
+        width: 100%;
+        overflow: hidden; /* Hide the overflow to ensure the sliding effect stays within bounds */
+      }
+      
+      .destination-cards-wrapper {
+        display: flex;
+        justify-content: start;
+        width: 100%;
+        overflow: hidden; /* Ensure it doesn't show scrollbars */
+      }
+      
+      .destination-cards {
+        display: flex;
+        animation: slide-left 15s linear infinite; /* Adjust timing to control the speed */
+      }
+      
+      .destination-card {
+        position: relative;
+        min-width: 250px;
+        margin-right: 20px; /* Space between the cards */
+        transition: transform 0.5s ease-in-out;
+        cursor: pointer;
+      }
+      .destination-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+      
+      @keyframes slide-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%); /* Slide all the way to the left */
+        }
+      }
+      .destination-card img {
+        width: 100%;
+        height: auto;
+      }
+      #activities {
+        padding: 60px 20px;
+        background: #f4f4f4;
+        text-align: center;
+    }
+    
+    .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .activity-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .activity-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .activity-card h3 {
+        font-size: 1.3em;
+        margin: 15px 0 5px;
+        color: #333;
+    }
+    
+    .activity-card:hover {
+        transform: translateY(-5px);
+    }
+    .activity-card p {
+        padding: 0 20px 20px;
+        color: #666;
+        font-size: 0.95em;
+    }
+
+    
+
+    /* For smooth scrolling */
+    .scroll-to {
+        cursor: pointer;
+    }
+    
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+#home{
+    padding: 200px;
+    background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsJTIwbmF0dXJlfGVufDB8fDB8fHww");
+    min-height: 50vh;
+    background-size: cover;
+    position: relative;
+    
+}
+#home h1{
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+#home p{
+    font-size: 1.8rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 10px auto;
+    line-height: 1.6;
+    color:white;
+}
+.region-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;  
+}
+
+.region-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
+    transition: 0.3s;
+   
+}
+
+.region-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: black;
+    transform: scale(1.1);
+    
+}
+.north-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    background: #f8f9fa;
+}
+
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.back-button {
+    display: inline-block;
+    margin: 20px 40px;
+    padding: 12px 24px;
+    background-color: #343a40;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #83b2e2;
+}
+.central-creative {
+    padding: 60px 30px;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    text-align: center;
+  }
+  
+  .central-creative h2 {
+    font-size: 2.4rem;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .creative-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .creative-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+  }
+  
+  .creative-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .creative-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    display: block;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    backdrop-filter: blur(4px);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .creative-card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.75);
+  }
+  
+  .card-overlay h3 {
+    font-size: 1.4rem;
+    margin: 0 0 10px;
+    color: #ffd54f;
+  }
+  
+  .card-overlay p {
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+
+
+
+/* Responsive Design via Media Queries */
+
+/* For tablets and smaller devices (max-width: 768px) */
+
+@media (max-width: 1024px) {
+    header nav ul li {
+      display: block;
+      margin: 10px 0;
+      text-align: center;
+    }
+  
+    .hasini-links,
+    .region-links {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .hero-overlay {
+      padding: 40px 15px;
+    }
+  
+    #home h1 {
+      font-size: 2.5rem;
+    }
+  
+    #home p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #hero h1 {
+      font-size: 2rem;
+    }
+  
+    .hasini-button,
+    .region-button,
+    .back-button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  
+    .activities-grid,
+    .north-gallery,
+    .creative-cards {
+      grid-template-columns: 1fr;
+    }
+  
+    .destination-card {
+      min-width: 200px;
+    }
+  
+    .gallery-overlay,
+    .card-overlay {
+      padding: 15px;
+      font-size: 1rem;
+    }
+  
+    .card-overlay h3 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #home h1,
+    #hero h1 {
+      font-size: 1.8rem;
+    }
+  
+    #home p {
+      font-size: 1rem;
+    }
+  
+    nav ul li {
+      margin: 8px 0;
+    }
+  
+    .hero-overlay {
+      border-radius: 10px;
+      padding: 30px 10px;
+    }
+  
+    .hasini-button,
+    .region-button {
+      width: 90%;
+      margin: 8px auto;
+      text-align: center;
+    }
+  
+    .back-button {
+      margin: 20px auto;
+      display: block;
+    }
+  }

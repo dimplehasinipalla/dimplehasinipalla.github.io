@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: antiquewhite;
+            margin: 0;
+            padding: 0;
+           
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #4B2E2E; 
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input:focus, textarea:focus {
+            border-color: #ff5733;
+            outline: none;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .success {
+            color: green;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+     background: #8B4513;  /* Rich brown */
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+        .submit-btn:hover {
+            background: #A0522D; 
+        }
+        footer {
+    background-color: #5A3E36;  /* Deep Coffee Brown */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1em;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p class="success" id="successMsg" style="display: none;">Message sent successfully!</p>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <span class="error" id="nameError"></span>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <span class="error" id="emailError"></span>
+    
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+                <span class="error" id="phoneError"></span>
+    
+                <label for="subject">Subject:</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a Subject</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="feedback">Website Feedback</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="error" id="subjectError"></span>
+    
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Write your message here..." maxlength="500" required></textarea>
+                <span class="error" id="messageError"></span>
+    
+                <label>
+                    <input type="checkbox" id="agree">
+                    I agree to the Terms and Conditions
+                </label>
+                <span class="error" id="termsError"></span>
+            </div>
+    
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            let isValid = true;
+            document.getElementById("successMsg").style.display = "none";
+    
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value.trim();
+            const agree = document.getElementById("agree").checked;
+    
+            // Name
+            const namePattern = /^[A-Za-z\s]+$/;
+
+            if (name === "") {
+                isValid = false;
+                document.getElementById("nameError").textContent = "Name is required.";
+            } else if (!namePattern.test(name)) {
+                isValid = false;
+                document.getElementById("nameError").textContent = "Enter a valid name.";
+            }
+            else {
+                document.getElementById("nameError").textContent = "";
+            }
+    
+            // Email
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (email === "") {
+                isValid = false;
+                document.getElementById("emailError").textContent = "Email is required.";
+            } else if (!emailPattern.test(email)) {
+                isValid = false;
+                document.getElementById("emailError").textContent = "Enter a valid email.";
+            } else {
+                document.getElementById("emailError").textContent = "";
+            }
+    
+            // Phone
+            const phonePattern = /^[0-9]{10}$/;
+            if (phone === "") {
+                isValid = false;
+                document.getElementById("phoneError").textContent = "Phone number is required.";
+            } else if (!phonePattern.test(phone)) {
+                isValid = false;
+                document.getElementById("phoneError").textContent = "Enter a valid 10-digit phone number.";
+            } else {
+                document.getElementById("phoneError").textContent = "";
+            }
+    
+            // Subject
+            if (subject === "") {
+                isValid = false;
+                document.getElementById("subjectError").textContent = "Please select a subject.";
+            } else {
+                document.getElementById("subjectError").textContent = "";
+            }
+    
+            // Message
+            if (message === "") {
+                isValid = false;
+                document.getElementById("messageError").textContent = "Message cannot be empty.";
+            } else if (message.length < 10) {
+                isValid = false;
+                document.getElementById("messageError").textContent = "Message should be at least 10 characters.";
+            } else if (message.length > 500) {
+                isValid = false;
+                document.getElementById("messageError").textContent = "Message should be under 500 characters.";
+            } else {
+                document.getElementById("messageError").textContent = "";
+            }
+    
+            // Terms checkbox
+            if (!agree) {
+                isValid = false;
+                document.getElementById("termsError").textContent = "You must agree to the terms.";
+            } else {
+                document.getElementById("termsError").textContent = "";
+            }
+    
+            // If everything is valid
+            if (isValid) {
+                document.getElementById("successMsg").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("successMsg").style.display = "none";
+                }, 4000);
+                document.getElementById("contactForm").reset();
+            }
+        });
+    </script>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Explore the INDIA. All rights reserved.</p>
+    </footer>
+</body>
+</html>
